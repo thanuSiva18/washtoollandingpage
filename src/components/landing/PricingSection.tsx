@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Check, MessageCircle, Star } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20start%20my%20free%207-day%20trial%20for%20the%20car%20wash%20management%20app.";
+const WHATSAPP_TRIAL_URL = "https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20start%20my%20free%207-day%20trial%20for%20the%20car%20wash%20management%20app.";
+const WHATSAPP_TALK_URL = "https://wa.me/919876543210?text=Hi%2C%20I%27m%20interested%20in%20the%20One-Time%20Owner%20Plan.%20Please%20share%20more%20details.";
 
 const features = [
   "All core features included",
@@ -10,94 +11,142 @@ const features = [
   "Staff management",
   "Mobile app access",
   "Free setup & training",
-  "Local WhatsApp support",
-  "7-day free trial included"
+  "Local WhatsApp support"
+];
+
+const plans = [
+  {
+    name: "Monthly Plan",
+    price: "₹999",
+    period: "/ month",
+    description: "Best for getting started",
+    highlight: false,
+    badge: null,
+    ctaText: "Start Free Trial",
+    ctaUrl: WHATSAPP_TRIAL_URL
+  },
+  {
+    name: "Yearly Plan",
+    price: "₹749",
+    period: "/ month",
+    billingNote: "Billed yearly",
+    description: "Best value for growing car wash owners",
+    highlight: false,
+    badge: null,
+    ctaText: "Start Free Trial",
+    ctaUrl: WHATSAPP_TRIAL_URL
+  },
+  {
+    name: "One-Time Owner Plan",
+    price: "₹20,000",
+    period: "",
+    description: "Pay once. Use forever. No monthly tension.",
+    highlight: true,
+    badge: "BEST VALUE",
+    ctaText: "Talk to Us",
+    ctaUrl: WHATSAPP_TALK_URL
+  }
 ];
 
 const PricingSection = () => {
-  const handleCtaClick = () => {
-    window.open(WHATSAPP_URL, "_blank");
+  const handleCtaClick = (url: string) => {
+    window.open(url, "_blank");
   };
 
   return (
     <section id="pricing" className="py-16 md:py-24">
       <div className="container px-4">
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Section header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Simple, honest pricing
             </h2>
             <p className="text-muted-foreground text-lg">
-              One plan. Everything included. Start with 7 days free.
+              Choose the plan that works for your business
             </p>
           </div>
 
-          {/* Pricing card */}
-          <div className="relative rounded-3xl bg-card border-2 border-primary shadow-elevated overflow-hidden">
-            {/* Popular badge */}
-            <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 rounded-bl-xl">
-              <div className="flex items-center gap-1 text-sm font-semibold">
-                <Star className="h-4 w-4 fill-current" />
-                Most Chosen
-              </div>
-            </div>
-
-            <div className="p-8">
-              {/* Plan name */}
-              <div className="mb-6">
-                <h3 className="text-xl font-bold mb-2">Yearly Plan</h3>
-                <p className="text-muted-foreground text-sm">
-                  Best value for serious business owners
-                </p>
-              </div>
-
-              {/* Price */}
-              <div className="mb-8">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl md:text-5xl font-bold">₹749</span>
-                  <span className="text-muted-foreground text-lg">/ month</span>
-                </div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Billed yearly • Save ₹3,000/year
-                </p>
-              </div>
-
-              {/* Features */}
-              <div className="space-y-3 mb-8">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Check className="h-3 w-3 text-primary" />
-                    </div>
-                    <span className="text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA */}
-              <Button 
-                variant="cta" 
-                size="xl" 
-                className="w-full"
-                onClick={handleCtaClick}
+          {/* Pricing cards */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {plans.map((plan, index) => (
+              <div 
+                key={index}
+                className={`relative rounded-2xl overflow-hidden transition-all duration-300 ${
+                  plan.highlight 
+                    ? "bg-card border-4 border-accent shadow-[0_0_30px_hsl(var(--accent)/0.3)] scale-105 md:scale-110 z-10" 
+                    : "bg-card border border-border shadow-soft hover:shadow-elevated"
+                }`}
               >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Start Free 7-Day Trial
-              </Button>
+                {/* Badge */}
+                {plan.badge && (
+                  <div className="absolute top-0 left-0 right-0 bg-accent text-accent-foreground py-2 text-center">
+                    <div className="flex items-center justify-center gap-1 text-sm font-bold">
+                      <Star className="h-4 w-4 fill-current" />
+                      {plan.badge}
+                    </div>
+                  </div>
+                )}
 
-              <p className="text-center text-xs text-muted-foreground mt-4">
-                No credit card required • Trial auto-expires • No obligations
-              </p>
-            </div>
+                <div className={`p-6 ${plan.badge ? "pt-12" : ""}`}>
+                  {/* Plan name */}
+                  <div className="mb-4">
+                    <h3 className="text-lg font-bold mb-1">{plan.name}</h3>
+                    <p className="text-muted-foreground text-sm">
+                      {plan.description}
+                    </p>
+                  </div>
 
-            {/* Monthly option - de-emphasized */}
-            <div className="border-t border-border bg-muted/50 px-8 py-4">
-              <p className="text-center text-sm text-muted-foreground">
-                Prefer monthly? <span className="font-medium">₹999/month</span> also available
-              </p>
-            </div>
+                  {/* Price */}
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-1">
+                      <span className={`font-bold ${plan.highlight ? "text-4xl" : "text-3xl"}`}>
+                        {plan.price}
+                      </span>
+                      {plan.period && (
+                        <span className="text-muted-foreground">{plan.period}</span>
+                      )}
+                    </div>
+                    {plan.billingNote && (
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {plan.billingNote}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Features */}
+                  <div className="space-y-2 mb-6">
+                    {features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <div className={`flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${
+                          plan.highlight ? "bg-accent/20" : "bg-primary/10"
+                        }`}>
+                          <Check className={`h-2.5 w-2.5 ${plan.highlight ? "text-accent" : "text-primary"}`} />
+                        </div>
+                        <span className="text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <Button 
+                    variant={plan.highlight ? "cta" : "default"} 
+                    size="lg" 
+                    className="w-full"
+                    onClick={() => handleCtaClick(plan.ctaUrl)}
+                  >
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    {plan.ctaText}
+                  </Button>
+                </div>
+              </div>
+            ))}
           </div>
+
+          {/* Pricing note */}
+          <p className="text-center text-sm text-muted-foreground mt-8">
+            All plans include free setup and 7-day free trial • No credit card required
+          </p>
         </div>
       </div>
     </section>
