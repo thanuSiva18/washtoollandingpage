@@ -5,6 +5,12 @@ const Footer = () => {
     <footer className="py-12 border-t border-border">
       <div className="container px-4">
         <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8 pb-8 border-b border-border">
+            <p className="text-muted-foreground font-medium">
+              Local Tamil support · Free setup · Cancel anytime
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* Brand */}
             <div>
@@ -22,7 +28,7 @@ const Footer = () => {
             <div className="md:text-right">
               <h4 className="font-semibold mb-3">Get in touch</h4>
               <div className="space-y-2">
-                <a 
+                <a
                   href="https://wa.me/919876543210"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -32,7 +38,7 @@ const Footer = () => {
                   WhatsApp Support
                 </a>
                 <br />
-                <a 
+                <a
                   href="mailto:hello@washflow.in"
                   className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >

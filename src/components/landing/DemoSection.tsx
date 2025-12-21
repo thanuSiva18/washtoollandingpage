@@ -1,25 +1,56 @@
+import { useState, useEffect, useRef } from "react";
 import { Play, Volume2 } from "lucide-react";
 
 const DemoSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="demo" className="py-16 md:py-24 bg-secondary/30">
+    <section
+      id="demo"
+      ref={sectionRef}
+      className="py-20 md:py-32 bg-secondary/30"
+    >
       <div className="container px-4">
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              See how simple it is
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              How it works in real life
             </h2>
             <p className="text-muted-foreground text-lg">
-              45-second demo in Tamil • No music, just real walkthrough
+              From booking to completion — even when you're not there.
             </p>
           </div>
 
-          {/* Video placeholder */}
-          <div className="relative aspect-video rounded-2xl overflow-hidden bg-card shadow-elevated border border-border">
+          {/* Main Video Area */}
+          <div
+            className={`relative aspect-video rounded-3xl overflow-hidden bg-card shadow-xl border border-border/50 transform transition-all duration-1000 ease-out ${isVisible ? "scale-100 opacity-100 translate-y-0" : "scale-[0.97] opacity-90 translate-y-4"
+              }`}
+          >
             {/* Placeholder gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/10" />
-            
+
             {/* Play button overlay */}
             <div className="absolute inset-0 flex items-center justify-center">
               <button className="group relative flex items-center justify-center w-20 h-20 rounded-full bg-primary text-primary-foreground shadow-elevated hover:scale-110 transition-transform duration-300">
@@ -29,13 +60,13 @@ const DemoSection = () => {
             </div>
 
             {/* Video info overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-foreground/80 to-transparent">
-              <div className="flex items-center justify-between text-primary-foreground">
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent">
+              <div className="flex items-center justify-between text-white">
                 <div className="flex items-center gap-3">
                   <Volume2 className="h-4 w-4" />
                   <span className="text-sm font-medium">Demo in Tamil with captions</span>
                 </div>
-                <span className="text-sm opacity-80">0:45</span>
+                <span className="text-sm opacity-90">0:45</span>
               </div>
             </div>
 
@@ -46,24 +77,11 @@ const DemoSection = () => {
             </div>
           </div>
 
-          {/* Video highlights */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            {[
-              "New booking appears",
-              "Today's revenue dashboard",
-              "Mark service complete",
-              "Check from mobile"
-            ].map((step, index) => (
-              <div 
-                key={index}
-                className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border"
-              >
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold">
-                  {index + 1}
-                </span>
-                <span className="text-sm font-medium">{step}</span>
-              </div>
-            ))}
+          {/* Inline Outcome Text */}
+          <div className="mt-8 text-center">
+            <p className="text-sm md:text-base font-medium text-muted-foreground">
+              Never miss a booking · Know today’s earnings · Track work completion · Monitor remotely
+            </p>
           </div>
         </div>
       </div>

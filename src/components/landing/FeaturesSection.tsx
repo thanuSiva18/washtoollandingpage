@@ -1,77 +1,55 @@
-import { 
-  CalendarCheck, 
-  IndianRupee, 
-  Users, 
-  Smartphone,
-  Clock,
-  Bell
-} from "lucide-react";
-
-const features = [
-  {
-    icon: CalendarCheck,
-    title: "Smart Booking",
-    description: "Customers book online. You see it instantly."
-  },
-  {
-    icon: IndianRupee,
-    title: "Revenue Dashboard",
-    description: "Today's earnings, pending payments — all at a glance."
-  },
-  {
-    icon: Users,
-    title: "Staff Management",
-    description: "Know who's working on what, in real-time."
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile First",
-    description: "Check everything from your phone, anywhere."
-  },
-  {
-    icon: Clock,
-    title: "Service Tracking",
-    description: "Mark services done. Track timing. Stay organized."
-  },
-  {
-    icon: Bell,
-    title: "Instant Alerts",
-    description: "Get notified for new bookings and completions."
-  }
-];
+import { Calendar, CreditCard, LayoutDashboard } from "lucide-react";
 
 const FeaturesSection = () => {
+  const features = [
+    {
+      title: "Bookings & Customers",
+      text: "Automatically capture every booking. No missed slots or double bookings.",
+      icon: Calendar
+    },
+    {
+      title: "Revenue & Payments",
+      text: "See today’s earnings, pending payments, and totals — anytime.",
+      icon: CreditCard
+    },
+    {
+      title: "Staff & Operations",
+      text: "Track service progress, mark work complete, and stay in control.",
+      icon: LayoutDashboard
+    }
+  ];
+
   return (
-    <section className="py-16 md:py-24 bg-secondary/30">
+    <section className="py-20 md:py-32 bg-secondary/30 border-y border-border/40">
       <div className="container px-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Everything you need, nothing you don't
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+              Built to run your car wash, end to end
             </h2>
-            <p className="text-muted-foreground text-lg">
-              Simple tools that work. Built for busy car wash owners.
+            <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
+              Everything you need to manage bookings, revenue, and daily operations — without complexity.
             </p>
           </div>
 
-          {/* Features grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div 
+                <div
                   key={index}
-                  className="group p-6 rounded-2xl bg-card border border-border shadow-soft hover:shadow-elevated hover:-translate-y-1 transition-all duration-300"
+                  className="p-6 md:p-8 rounded-2xl bg-card border border-border/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-start text-left group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center mb-6">
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-lg mb-2">
+                  <h3 className="text-xl font-bold mb-3 tracking-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {feature.description}
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.text}
                   </p>
                 </div>
               );
@@ -84,3 +62,4 @@ const FeaturesSection = () => {
 };
 
 export default FeaturesSection;
+
