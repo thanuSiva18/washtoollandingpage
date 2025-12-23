@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Definition of the design system. All colors, gradients, fonts, etc are defined here. 
+   All colors use HSL and map directly to Tailwind tokens. */
 
 @layer base {
   :root {
-    /* Clean, operational, trustworthy palette - matches product UI */
+    /* Core surface & text */
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
 
@@ -18,36 +17,41 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Primary blue #0D5CFF */
+    /* Primary brand blue – shared with app UI (#0D5CFF) */
     --primary: 220 100% 52%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary light blue #EAF1FF */
+    /* Subtle blue-tinted surfaces */
     --secondary: 220 100% 96%;
     --secondary-foreground: 220 100% 40%;
 
+    /* Neutral support text & backgrounds */
     --muted: 220 14% 96%;
     --muted-foreground: 220 9% 46%;
 
-    /* CTA Orange #FFA500 */
+    /* Accent – reserved for primary CTAs & key highlights (#FFA500) */
     --accent: 39 100% 50%;
     --accent-foreground: 0 0% 100%;
 
+    /* Semantic states */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
+    /* Borders & focus */
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 220 100% 52%;
 
+    /* Radius system */
     --radius: 0.75rem;
 
-    /* Custom tokens */
+    /* Elevated surfaces & subtle glow for cards */
     --hero-gradient-start: 220 100% 52%;
     --hero-gradient-end: 220 100% 45%;
     --glow-primary: 220 100% 60%;
     --surface-elevated: 0 0% 100%;
 
+    /* Sidebar tokens (used by shared UI components) */
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 222 47% 11%;
     --sidebar-primary: 220 100% 52%;
@@ -101,9 +105,7 @@ All colors MUST be HSL.
     --sidebar-border: 222 30% 22%;
     --sidebar-ring: 220 100% 60%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
@@ -113,12 +115,17 @@ All colors MUST be HSL.
     font-feature-settings: "cv11", "ss01";
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading tracking-tight;
   }
 }
 
-/* Animations */
+/* Shared motion utilities (kept subtle for SaaS feel) */
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -131,22 +138,22 @@ All colors MUST be HSL.
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  from {
+    opacity: 0;
   }
-  50% {
-    box-shadow: 0 0 40px hsl(var(--accent) / 0.5);
+  to {
+    opacity: 1;
   }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-fade-up {
@@ -157,26 +164,22 @@ All colors MUST be HSL.
   animation: fade-in 0.5s ease-out forwards;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
 
-.animation-delay-100 { animation-delay: 100ms; }
-.animation-delay-200 { animation-delay: 200ms; }
-.animation-delay-300 { animation-delay: 300ms; }
-.animation-delay-400 { animation-delay: 400ms; }
-.animation-delay-500 { animation-delay: 500ms; }
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+.animation-delay-500 {
+  animation-delay: 500ms;
 }

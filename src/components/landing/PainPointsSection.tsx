@@ -2,41 +2,41 @@ import { X, ArrowRight, Check } from "lucide-react";
 
 const painPoints = [
     {
-        problem: "Losing money on missed calls",
-        solution: "Auto-capture every booking 24/7",
-        detail: "Customers book themselves online, even while you sleep."
+        problem: "Losing thousands on missed bookings",
+        solution: "Never miss a single slot again",
+        detail: "Stop losing customers because you couldn't pick up the phone. Capture every booking automatically, 24/7."
     },
     {
-        problem: "Not knowing today's total cash",
-        solution: "Live revenue tracking",
-        detail: "Open the app and see exactly how much you made today."
+        problem: "Daily revenue uncertainty & manual math",
+        solution: "Know your exact earnings instantly",
+        detail: "No more notebook chaos or manual calculations. See your live total cash and bank balance in 2 seconds."
     },
     {
-        problem: "Writing everything in notebooks",
-        solution: "100% Digital & Automated",
-        detail: "No more lost pages. Customer history is saved forever."
+        problem: "Constant stress when leaving the shop",
+        solution: "Total control from your pocket",
+        detail: "Track staff progress and work completion from anywhere. Your business runs smooth even when you're not there."
     },
     {
-        problem: "Anxious when leaving the shop",
-        solution: "Monitor from anywhere",
-        detail: "See what staff are doing from your home or car."
+        problem: "The fear of tech and 'complex' software",
+        solution: "Simple as using WhatsApp",
+        detail: "Zero tech skills needed. We set everything up for you personally so you can focus on growing your business."
     }
 ];
 
 const PainPointsSection = () => {
     return (
-        <section className="py-20 md:py-32 bg-background">
+        <section className="py-16 md:py-20 bg-background">
             <div className="container px-4">
                 <div className="max-w-4xl mx-auto">
                     {/* Section header */}
-                    <div className="text-center mb-16">
-                        <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-red-500 uppercase bg-red-50 rounded-full">
+                    <div className="text-center mb-10">
+                        <div className="inline-block px-3 py-1 mb-3 text-xs font-semibold tracking-wider text-red-500 uppercase bg-red-50 rounded-full">
                             The Problem
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-                            Running a car wash shouldn't feel like a guessing game.
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+                            Running a car wash shouldn't feel like a guessing game
                         </h2>
-                        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                        <p className="text-muted-foreground text-base max-w-2xl mx-auto">
                             Stop relying on trust and notebooks. Get strict control over your business operations.
                         </p>
                     </div>
@@ -71,7 +71,7 @@ const PainPointsSection = () => {
                                 </div>
 
                                 {/* Solution side */}
-                                <div className="flex items-start gap-4 md:border-l md:border-dashed md:border-border md:pl-6">
+                                <div className="flex items-start gap-4 pt-6 border-t border-border/50 md:border-t-0 md:border-l md:border-dashed md:border-border md:pt-0 md:pl-6">
                                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                                         <Check className="h-5 w-5 text-primary" />
                                     </div>

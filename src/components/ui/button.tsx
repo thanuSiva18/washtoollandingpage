@@ -11,12 +11,12 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft hover:shadow-elevated",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        outline: "border border-input bg-background hover:bg-primary/5 hover:text-primary",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghost: "hover:bg-muted hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Hero CTA - warm amber with glow effect
-        cta: "bg-accent text-accent-foreground hover:brightness-110 shadow-glow-accent animate-pulse-glow font-bold",
+        // Primary CTA - calm accent without aggressive glow
+        cta: "bg-accent text-accent-foreground hover:brightness-110 shadow-soft hover:shadow-elevated font-semibold",
         // Hero secondary - outlined with primary color
         heroOutline: "border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-primary-foreground",
       },
