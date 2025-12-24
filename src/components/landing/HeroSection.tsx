@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { BarChart3, Calendar, MessageCircle, Users } from "lucide-react";
+import { MessageCircle, CheckCircle2 } from "lucide-react";
 
 const WHATSAPP_URL =
-  "https://wa.me/919385439607?text=Hi%2C%20I%20want%20to%20start%20my%20free%207-day%20trial%20for%20the%20car%20wash%20management%20app.";
+  "https://wa.me/919360220928?text=Hi%2C%20I%20want%20to%20start%20my%20free%207-day%20trial%20for%20the%20car%20wash%20management%20app.";
 
 const HeroSection = () => {
   const handleCtaClick = () => {
@@ -10,66 +10,58 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative pt-20 pb-16 md:pt-28 md:pb-20 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
+    <section className="relative bg-white pt-32 pb-16 md:pt-40 md:pb-28 overflow-hidden">
+      <div className="container px-4 text-center">
+        <div className="max-w-4xl mx-auto space-y-8 flex flex-col items-center">
 
-      <div className="container relative z-10 px-4">
-        <div className="flex items-center justify-center">
-          <div className="max-w-2xl text-center">
-            {/* Pre-headline */}
-            <p className="text-xs tracking-wider uppercase text-primary font-semibold mb-4">
-              For car wash owners losing money on missed bookings
+          {/* Eyebrow / Trust Badge */}
+          <div className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 shadow-sm">
+            <span className="flex h-2 w-2 rounded-full bg-blue-600 mr-2.5 animate-pulse"></span>
+            <span className="text-xs font-semibold tracking-wide uppercase text-slate-600">Trusted by smart owners in Tamil Nadu</span>
+          </div>
+
+          {/* Main Typography */}
+          <div className="space-y-6">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-[#0F172A] leading-[1.1]">
+              Take full control of your <br className="hidden sm:block" />
+              <span className="text-blue-600">shop & revenue.</span>
+            </h1>
+
+            <p className="max-w-2xl mx-auto text-lg md:text-xl text-[#475569] leading-relaxed">
+              Stop worrying about theft, unrecorded cash, or missed bookings.
+              Track your entire business from your phone — even when you aren't there.
             </p>
+          </div>
 
-            {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-[3.1rem] font-black leading-tight tracking-tight text-foreground mb-4">
-              <span className="block">Take full control of your car wash</span>
-            <h1 className="text-4xl md:text-5xl font-black leading-tight tracking-tight text-foreground mb-4">
-              Take full control of your car wash
-              <span className="block text-primary mt-1">
-                even when you're not at the shop
+          {/* CTA Area */}
+          <div className="flex flex-col items-center gap-6 pt-4 w-full">
+            <Button
+              size="lg"
+              onClick={handleCtaClick}
+              className="bg-blue-600 hover:bg-blue-700 text-white h-14 px-10 text-lg font-bold shadow-xl shadow-blue-600/20 transition-all hover:shadow-blue-600/30 hover:-translate-y-1 w-full sm:w-auto"
+            >
+              <MessageCircle className="mr-2 h-6 w-6" />
+              Start Free 7-Day Trial
+            </Button>
 
-            {/* Subheadline */}
-            <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto">
-              A simple app to manage bookings, track daily revenue, and monitor staff in real time — without any tech skills.
-            </p>
-
-            {/* CTA */}
-            <div className="mb-6">
-              <Button
-                variant="cta"
-                size="xl"
-                onClick={handleCtaClick}
-                className="px-8 py-4 text-base"
-              >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Start Free 7-Day Trial
-              </Button>
-            </div>
-
-            <p className="text-sm text-muted-foreground mb-6">
-              Free setup • No credit card • Cancel anytime
-            </p>
-
-            {/* Proof strip */}
-            <div className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground pt-4 border-t border-border/40">
-                <div className="inline-flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-primary" />
-                  <span>Bookings</span>
-                </div>
-                <div className="inline-flex items-center gap-2">
-                  <BarChart3 className="h-4 w-4 text-primary" />
-                  <span>Revenue</span>
-                </div>
-                <div className="inline-flex items-center gap-2">
-                  <Users className="h-4 w-4 text-primary" />
-                  <span>Staff tracking</span>
-                </div>
+            {/* Trust Signals */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm font-medium text-slate-500">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-slate-400" />
+                <span>Used by 50+ shops</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-slate-400" />
+                <span>Setup in 24 hours</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-slate-400" />
+                <span>No Credit Card</span>
               </div>
             </div>
-            </div>
-        </v>
+          </div>
+
+        </div>
       </div>
     </section>
   );

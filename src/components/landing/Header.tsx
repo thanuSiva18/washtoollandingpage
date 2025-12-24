@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20start%20my%20free%207-day%20trial%20for%20the%20car%20wash%20management%20app.";
+const WHATSAPP_URL = "https://wa.me/919360220928?text=Hi%2C%20I%20want%20to%20start%20my%20free%207-day%20trial%20for%20the%20car%20wash%20management%20app.";
 
 const Header = () => {
   const handleCtaClick = () => {
@@ -15,21 +15,21 @@ const Header = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">W</span>
+              <span className="text-primary-foreground font-bold text-sm">Z</span>
             </div>
-            <span className="font-bold text-lg">WashFlow</span>
+            <span className="font-bold text-lg">Z-Wash</span>
           </a>
 
           {/* Nav links - hidden on mobile */}
           <nav className="hidden md:flex items-center gap-8">
-            <a 
-              href="#demo" 
+            <a
+              href="#demo"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Demo
             </a>
-            <a 
-              href="#pricing" 
+            <a
+              href="#pricing"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Pricing
@@ -37,8 +37,8 @@ const Header = () => {
           </nav>
 
           {/* CTA */}
-          <Button 
-            variant="default" 
+          <Button
+            variant="default"
             size="sm"
             onClick={handleCtaClick}
           >
