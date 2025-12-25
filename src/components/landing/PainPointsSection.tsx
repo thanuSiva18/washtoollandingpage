@@ -20,59 +20,51 @@ const painPoints = [
 
 const PainPointsSection = () => {
     return (
-        <section className="py-16 md:py-20 bg-background">
+        <section className="py-20 bg-slate-50">
             <div className="container px-4">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-3xl mx-auto">
                     {/* Section header */}
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-[#0F172A]">
+                    <div className="text-center mb-16">
+                        <h2 className="text-[24px] md:text-3xl font-bold mb-4 tracking-tight text-slate-900">
                             Is your shop running <span className="text-red-600">you</span>?
                         </h2>
-                        <p className="text-[#475569] text-lg max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-slate-600 text-[16px] leading-relaxed max-w-xl mx-auto">
                             Most owners lose 20% of revenue to unrecorded sales and wasted time. Stop the leaks.
                         </p>
                     </div>
 
-                    {/* Pain points grid */}
-                    <div className="grid gap-6 md:gap-8">
+                    {/* Pain points List - Clean, No Cards */}
+                    <div className="space-y-12">
                         {painPoints.map((item, index) => (
-                            <div
-                                key={index}
-                                className="group relative grid md:grid-cols-[1fr,auto,1fr] items-center gap-5 md:gap-6 p-5 md:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
-                            >
-                                {/* Problem side */}
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-50 flex items-center justify-center mt-1">
-                                        <X className="h-5 w-5 text-red-600" />
+                            <div key={index} className="relative pl-4 border-l-2 border-slate-200 md:border-none md:pl-0 md:text-center md:flex md:flex-col md:items-center">
+                                {/* Problem */}
+                                <div className="mb-2">
+                                    <div className="inline-flex items-center gap-2 text-red-600 font-semibold text-[14px] uppercase tracking-wide mb-1">
+                                        <X className="w-4 h-4" />
+                                        <span>Problem</span>
                                     </div>
-                                    <div>
-                                        <h3 className="font-bold text-lg text-[#0F172A] mb-1">
-                                            {item.problem}
-                                        </h3>
-                                        <p className="text-sm text-red-500 font-medium">
-                                            High Stress
-                                        </p>
-                                    </div>
+                                    <h3 className="text-[18px] md:text-xl font-bold text-slate-900 leading-snug">
+                                        {item.problem}
+                                    </h3>
                                 </div>
 
-                                {/* Arrow */}
-                                <div className="hidden md:flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity">
-                                    <ArrowRight className="h-5 w-5 text-slate-400" />
+                                {/* Connector (Mobile specific styling handled by layout) */}
+                                <div className="hidden md:block my-2 text-slate-300">
+                                    <ArrowRight className="w-5 h-5 rotate-90" />
                                 </div>
 
-                                {/* Solution side */}
-                                <div className="flex items-start gap-4 pt-6 border-t border-slate-100 md:border-t-0 md:border-l md:border-dashed md:border-slate-200 md:pt-0 md:pl-8">
-                                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mt-1">
-                                        <Check className="h-5 w-5 text-blue-600" />
+                                {/* Solution */}
+                                <div className="mt-3 md:mt-0">
+                                    <div className="inline-flex items-center gap-2 text-blue-600 font-semibold text-[14px] uppercase tracking-wide mb-1">
+                                        <Check className="w-4 h-4" />
+                                        <span>Solution</span>
                                     </div>
-                                    <div>
-                                        <h3 className="font-bold text-lg text-blue-600 mb-1">
-                                            {item.solution}
-                                        </h3>
-                                        <p className="text-sm text-[#475569] leading-relaxed">
-                                            {item.detail}
-                                        </p>
-                                    </div>
+                                    <h3 className="text-[18px] md:text-xl font-bold text-blue-700 leading-snug mb-2">
+                                        {item.solution}
+                                    </h3>
+                                    <p className="text-[15px] text-slate-600 leading-relaxed md:max-w-md md:mx-auto">
+                                        {item.detail}
+                                    </p>
                                 </div>
                             </div>
                         ))}

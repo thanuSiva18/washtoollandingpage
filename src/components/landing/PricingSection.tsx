@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, MessageCircle, Star, ShieldCheck } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 
 const WHATSAPP_TRIAL_URL =
   "https://wa.me/919360220928?text=Hi%2C%20I%20want%20to%20start%20my%20free%207-day%20trial%20for%20the%20car%20wash%20management%20app.";
@@ -12,59 +12,37 @@ const WHATSAPP_LIFETIME_URL =
 
 const plans = [
   {
-    name: "Starter Monthly",
-    subtext: "Good for testing usage",
+    name: "Monthly",
     price: "₹999",
-    period: "/ month",
-    highlightLine: "Billed monthly. Cancel anytime.",
-    features: [
-      "All core features",
-      "Unlimited bookings",
-      "Revenue tracking",
-      "Staff management"
-    ],
+    period: "/mo",
+    features: ["All core features", "Unlimited bookings"],
     ctaText: "Start Monthly",
     ctaUrl: WHATSAPP_MONTHLY_URL,
-    highlight: false,
-    size: "sm",
+    isPrimary: false,
   },
   {
-    name: "Smart Yearly",
-    subtext: "Save ₹3,000 / year",
+    name: "Yearly",
     price: "₹749",
-    period: "/ month",
-    highlightLine: "₹8,988 billed yearly",
-    features: [
-      "All core features",
-      "Free personal setup",
-      "Priority WhatsApp support",
-      "Staff training included"
-    ],
+    period: "/mo",
+    features: ["Save ₹3,000/year", "Priority Support"],
     ctaText: "Go Yearly",
     ctaUrl: WHATSAPP_YEARLY_URL,
-    highlight: false,
-    badge: "Popular",
-    size: "md",
+    isPrimary: false,
   },
   {
     name: "Owner Lifetime",
-    subtext: "Pay Once. Profit Forever.",
     price: "₹19,999",
-    period: "One-time",
-    highlightLine: "Cheaper than 2 years of rent.",
+    period: "one-time",
     features: [
-      "Life-time access (No monthly fees)",
-      "Premium 'Done-For-You' Setup",
-      "Direct Owner Support Line",
-      "Future Feature Updates Included",
-      "Multiple Branch Support"
+      "No monthly fees ever",
+      "Premium Setup Included",
+      "Profit Forever",
+      "Direct Owner Support"
     ],
-    reassurance: "Complete Ownership Asset",
     ctaText: "Get Lifetime License",
     ctaUrl: WHATSAPP_LIFETIME_URL,
-    highlight: true,
-    badge: "Best Value",
-    size: "lg",
+    isPrimary: true,
+    badge: "BEST VALUE"
   },
 ];
 
@@ -74,112 +52,81 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-slate-50 border-y border-slate-200 relative">
+    <section id="pricing" className="py-20 bg-slate-50">
       <div className="container px-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Section header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-[#0F172A]">
+            <h2 className="text-[24px] md:text-3xl font-bold mb-4 tracking-tight text-slate-900">
               Simple pricing. <span className="text-blue-600">No hidden fees.</span>
             </h2>
-            <p className="text-[#475569] text-xl max-w-2xl mx-auto">
-              Invest in your business today. Stop paying rent on software.
+            <p className="text-slate-600 text-[16px]">
+              Invest in your business. Stop paying rent on software.
             </p>
           </div>
 
-          {/* Pricing cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 items-center max-w-5xl mx-auto">
+          {/* Pricing Stack */}
+          <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:items-start">
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`relative rounded-2xl overflow-hidden transition-all duration-200 flex flex-col ${plan.highlight
-                  ? "bg-white border-2 border-blue-600 shadow-2xl scale-100 md:scale-110 z-10"
-                  : "bg-white border border-slate-200 shadow-sm hover:shadow-md"
-                  } ${plan.size === "sm" ? "md:scale-95 md:translate-y-2" : ""
-                  } ${plan.size === "md" ? "md:scale-100" : ""
+                className={`relative rounded-2xl p-6 ${plan.isPrimary
+                    ? "bg-white border-2 border-[#FFA500] shadow-xl md:-mt-4 md:p-8 order-first md:order-none"
+                    : "bg-white border border-slate-200 shadow-sm opacity-90 hover:opacity-100"
                   }`}
               >
-                {/* Badge */}
                 {plan.badge && (
-                  <div className={`absolute top-0 inset-x-0 h-8 flex items-center justify-center text-xs font-bold tracking-widest uppercase ${plan.highlight ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-600"}`}>
-                    {plan.badge}
+                  <div className="absolute top-0 right-0 left-0 -mt-3 flex justify-center">
+                    <span className="bg-[#FFA500] text-white text-xs font-bold px-3 py-1 rounded-full tracking-widest uppercase shadow-sm">
+                      {plan.badge}
+                    </span>
                   </div>
                 )}
 
-                <div className={`p-6 flex flex-col h-full ${plan.badge ? "pt-10" : "pt-8"}`}>
-                  {/* Plan name & Subtext */}
-                  <div className="mb-4 text-center">
-                    <h3 className={`text-xl font-bold mb-1 ${plan.highlight ? "text-[#0F172A]" : "text-slate-700"}`}>
-                      {plan.name}
-                    </h3>
-                    <p className="text-sm font-medium text-blue-600">
-                      {plan.subtext}
-                    </p>
-                  </div>
-
-                  {/* Price */}
-                  <div className="mb-6 text-center">
-                    <div className="flex items-center justify-center gap-1">
-                      <span
-                        className={`font-black tracking-tight ${plan.highlight ? "text-4xl text-[#0F172A]" : "text-3xl text-slate-800"
-                          }`}
-                      >
-                        {plan.price}
-                      </span>
-                      {plan.period && (
-                        <span className="text-slate-500 text-sm font-medium self-end mb-1">{plan.period}</span>
-                      )}
-                    </div>
-                    {plan.highlightLine && (
-                      <p className="text-xs font-medium text-slate-400 mt-2">
-                        {plan.highlightLine}
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Features */}
-                  <div className="space-y-4 mb-8 flex-grow">
-                    {plan.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <Check className={`h-5 w-5 flex-shrink-0 ${plan.highlight ? "text-blue-600" : "text-slate-400"}`} />
-                        <span className={`text-sm ${plan.highlight ? "font-medium text-slate-700" : "text-slate-600"}`}>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* CTA */}
-                  <div className="mt-auto">
-                    <Button
-                      variant={plan.highlight ? "default" : "outline"}
-                      size="lg"
-                      className={`w-full font-bold ${plan.highlight ? "bg-blue-600 hover:bg-blue-700 h-12 text-base shadow-lg shadow-blue-600/20" : "border-slate-300 text-slate-700 hover:bg-slate-50"}`}
-                      onClick={() => handleCtaClick(plan.ctaUrl)}
-                    >
-                      {plan.ctaText}
-                    </Button>
-
-                    {plan.reassurance && (
-                      <div className="mt-3 flex items-center justify-center gap-1 text-[10px] text-slate-500 font-medium">
-                        <ShieldCheck className="h-3 w-3" />
-                        {plan.reassurance}
-                      </div>
-                    )}
+                <div className="text-center mb-6">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{plan.name}</h3>
+                  <div className="flex items-center justify-center gap-1">
+                    <span className="text-3xl font-extrabold text-slate-900">{plan.price}</span>
+                    <span className="text-sm text-slate-500 font-medium">{plan.period}</span>
                   </div>
                 </div>
+
+                <ul className="space-y-3 mb-6">
+                  {plan.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+                      <Check className={`w-4 h-4 mt-0.5 ${plan.isPrimary ? "text-[#FFA500]" : "text-blue-600"}`} />
+                      <span className="text-left">{feature}</span>
+                    </div>
+                  ))}
+                </ul>
+
+                <Button
+                  onClick={() => handleCtaClick(plan.ctaUrl)}
+                  className={`w-full h-11 font-bold ${plan.isPrimary
+                      ? "bg-[#FFA500] hover:bg-orange-600 text-white shadow-md shadow-orange-500/20"
+                      : "bg-slate-100 hover:bg-slate-200 text-slate-700"
+                    }`}
+                >
+                  {plan.ctaText}
+                </Button>
+
+                {plan.isPrimary && (
+                  <div className="mt-3 flex justify-center gap-1 text-[11px] text-slate-500 font-medium">
+                    <ShieldCheck className="w-3 h-3" />
+                    <span>Pay Once. Own Forever.</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
-          {/* Trial note */}
-          <div className="mt-16 text-center opacity-80">
-            <p className="text-sm text-slate-500 mb-4">
-              Still deciding? Start small.
-            </p>
+          {/* Trial Link */}
+          <div className="mt-12 text-center">
             <button
               onClick={() => handleCtaClick(WHATSAPP_TRIAL_URL)}
-              className="text-sm font-semibold text-blue-600 hover:text-blue-700 border-b border-blue-600/30 hover:border-blue-600"
+              className="text-sm font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4"
             >
-              Try completely free for 7 days &rarr;
+              Not sure? Try completely free for 7 days
             </button>
           </div>
         </div>

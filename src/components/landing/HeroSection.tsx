@@ -10,54 +10,39 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-white pt-32 pb-16 md:pt-40 md:pb-28 overflow-hidden">
+    <section className="relative bg-white pt-24 pb-16 md:pt-40 md:pb-24">
       <div className="container px-4 text-center">
-        <div className="max-w-4xl mx-auto space-y-8 flex flex-col items-center">
+        <div className="max-w-3xl mx-auto flex flex-col items-center">
 
-          {/* Eyebrow / Trust Badge */}
-          <div className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 shadow-sm">
-            <span className="flex h-2 w-2 rounded-full bg-blue-600 mr-2.5 animate-pulse"></span>
-            <span className="text-xs font-semibold tracking-wide uppercase text-slate-600">Trusted by smart owners in Tamil Nadu</span>
+          {/* Eyebrow / Trust Badge - Minimal */}
+          <div className="mb-8 inline-flex items-center gap-2 px-3 py-1 bg-transparent text-slate-500 text-[12px] font-bold tracking-[0.2em] uppercase">
+            BUILT FOR CAR WASH OWNERS IN TAMIL NADU
           </div>
 
-          {/* Main Typography */}
-          <div className="space-y-6">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-[#0F172A] leading-[1.1]">
-              Take full control of your <br className="hidden sm:block" />
-              <span className="text-blue-600">shop & revenue.</span>
-            </h1>
+          {/* Main Typography - Chronicle Style (28-32px Mobile) */}
+          <h1 className="text-[32px] md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.2] mb-6 max-w-2xl">
+            Take full control of your <br className="hidden sm:block" />
+            <span className="text-blue-600">car wash shop & revenue.</span>
+          </h1>
 
-            <p className="max-w-2xl mx-auto text-lg md:text-xl text-[#475569] leading-relaxed">
-              Stop worrying about theft, unrecorded cash, or missed bookings.
-              Track your entire business from your phone — even when you aren't there.
-            </p>
-          </div>
+          <p className="max-w-xl mx-auto text-[16px] md:text-lg text-slate-600 leading-[1.6] mb-10">
+            Stop worrying about theft, unrecorded cash, or missed wash bookings.
+            Track your entire car wash business from your phone — even when you’re not there.
+          </p>
 
           {/* CTA Area */}
-          <div className="flex flex-col items-center gap-6 pt-4 w-full">
+          <div className="w-full max-w-sm space-y-5">
             <Button
               size="lg"
               onClick={handleCtaClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white h-14 px-10 text-lg font-bold shadow-xl shadow-blue-600/20 transition-all hover:shadow-blue-600/30 hover:-translate-y-1 w-full sm:w-auto"
+              className="w-full h-14 bg-[#FFA500] hover:bg-orange-600 text-white text-[16px] font-bold rounded-xl shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-0.5"
             >
-              <MessageCircle className="mr-2 h-6 w-6" />
               Start Free 7-Day Trial
             </Button>
 
-            {/* Trust Signals */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm font-medium text-slate-500">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-slate-400" />
-                <span>Used by 50+ shops</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-slate-400" />
-                <span>Setup in 24 hours</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-slate-400" />
-                <span>No Credit Card</span>
-              </div>
+            {/* Risk Reversal - One Line */}
+            <div className="text-[13px] text-slate-400 font-medium tracking-wide">
+              No credit card required • Setup in 2 minutes
             </div>
           </div>
 
